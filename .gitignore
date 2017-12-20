@@ -1,0 +1,10 @@
+*.pyc
+*.pyo
+dist/
+dist/**
+django_cleanhtmlfield.egg-info/**
+.idea/**
+venv/
+build/
+.tox/
+db.sqlite3
