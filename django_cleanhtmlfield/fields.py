@@ -17,8 +17,13 @@ class HTMLField(fields.TextField):
 
     EMPTY_HTML_REGEXP = re.compile(r'^<p>( |\s|&nbsp;)*</p>$')
 
-    def __init__(self, strip_unsafe=False, restricted=False, **kwargs):
-        self.strip_unsafe, self.restricted = strip_unsafe, restricted
+    def __init__(self, strip_unsafe=False, widget_form_class=None, *args, **kwargs):
+        """
+        :param strip_unsafe: boolean Needs to be set to true if you want the HTML Field to strip unsafe elements
+        :param widget_form_class: string Custom css class for the editor
+        :param kwargs:
+        """
+        self.strip_unsafe, self.widget_form_class = strip_unsafe, widget_form_class
 
         # verify that certain attributes are not set for this field (primary_key, unique, max_length), as this would
         # be a conflict with the purpose of the HTMLField
@@ -26,7 +31,7 @@ class HTMLField(fields.TextField):
             if arg in kwargs:
                 raise TypeError("'%s' is not a valid argument for %s." % (arg, self.__class__))
 
-        super(HTMLField, self).__init__(**kwargs)
+        super(HTMLField, self).__init__(*args, **kwargs)
 
     def get_internal_type(self):
         """
@@ -43,15 +48,16 @@ class HTMLField(fields.TextField):
 
         return clean_html(value, strip_unsafe=self.strip_unsafe)
 
-    def formfield(self, **kwargs):
+    def formfield(self, *args, **kwargs):
         defaults = {'form_class': forms.CharField}
         css_class = 'wysiwyg'
 
         if 'initial' in kwargs:
             defaults['required'] = False
 
-        if self.restricted:
-            css_class = 'wysiwyg-restricted'
+        # allow the css class of the widget to be overwritten
+        if self.widget_form_class:
+            css_class = self.widget_form_class
 
         defaults['widget'] = forms.Textarea(
             attrs={
@@ -60,4 +66,4 @@ class HTMLField(fields.TextField):
         )
 
         defaults.update(kwargs)
-        return super(HTMLField, self).formfield(**defaults)
+        return super(HTMLField, self).formfield(*args, **defaults)
