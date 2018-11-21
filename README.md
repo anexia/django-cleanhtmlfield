@@ -159,7 +159,7 @@ class RestHtmlField(fields.CharField):
     initial = False
 
     def __init__(self, **kwargs):
-        super(HtmlField, self).__init__(**kwargs)
+        super(RestHtmlField, self).__init__(**kwargs)
 
     def to_internal_value(self, data):
         return clean_html(data, strip_unsafe=True)
