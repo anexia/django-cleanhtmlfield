@@ -1,11 +1,11 @@
 # Django CleanHtmlField
 
-[![image](https://travis-ci.org/anexia-it/django-cleanhtmlfield.svg?branch=master)](https://travis-ci.org/anexia-it/django-cleanhtmlfield)
+[![build-and-test actions status](https://github.com/anexia-it/django-cleanhtmlfield/workflows/Module tests/badge.svg)](https://github.com/anexia-it/django-cleanhtmlfield/actions)
 
 Django CleanHtmlField is a simple Django application (supporting Django
-1.8, 1.11, 2.0 and 2.1) that defines an `HTMLField` that automatically
+2.2, 3.0 and 3.1) that defines an `HTMLField` that automatically
 removes potentially malicious content. This app should work with Python
-2.7+ and Python3.4+.
+3.5+.
 
 For instance, if you allow the user to freely input HTML Content, and
 the user decides to inject a JavaScript snippet:
@@ -168,6 +168,15 @@ class RestHtmlField(fields.CharField):
 ModelSerializer.serializer_field_mapping[HTMLField] = RestHtmlField
 ```
 
+## Compatibility Matrix
+
+This library should be compatible with the latest Django and Django Rest Framework Versions. For reference, here is
+a matrix showing the guaranteed and tested compatibility.
+
+django-cleanhtmlfield Version | Django Versions | Django Rest Framework Versions | Python |
+--------------------------------- | --------------- | ------------------------------ | ------ |
+1.0 | 2.2, 3.0, 3.1 | 3.6 - 3.11 | 3.5 - 3.8
+
 # Changelog
 
 ## 1.0.1
@@ -185,6 +194,4 @@ ModelSerializer.serializer_field_mapping[HTMLField] = RestHtmlField
 
 # Development and Tests
 
-The test app is located in the `tests` subfolder. Please run tests
-against all Django and Python versions (e.g., using `tox` - see
-`tox.ini`).
+The test app is located in the `tests` subfolder.
