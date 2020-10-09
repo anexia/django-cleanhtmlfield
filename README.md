@@ -177,17 +177,6 @@ django-cleanhtmlfield Version | Django Versions | Django Rest Framework Versions
 --------------------------------- | --------------- | ------------------------------ | ------ |
 1.0 | 2.2, 3.0, 3.1 | 3.6 - 3.11 | 3.5 - 3.8
 
-# Changelog
-
-## 1.0.1
-
-- Renamed `restricted` field option to `custom_css_class`
-- Updated docs/readme
-
-## 1.0
-
-- Initial Release
-
 # License
 
 [MIT License](LICENSE)
