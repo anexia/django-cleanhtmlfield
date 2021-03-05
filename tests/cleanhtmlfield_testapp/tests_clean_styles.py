@@ -61,10 +61,41 @@ class TestCleanStyles(SimpleTestCase):
 
     def test_clean_styles_invalid_element(self):
         """
-        Tests that cleaning styles removes invlaid elements
+        Tests that cleaning styles removes invalid elements
         :return:
         """
         self.assertEquals(
             clean_styles("padding: 9px; some-invalid-attribute: 10px; margin-bottom: 10px;"),
             "padding:9px;margin-bottom:10px;"
         )
+
+    def test_clean_styles_preserve_styles_whitespace(self):
+        """
+        Tests that cleaning styles optionally does not remove whitespace
+        :return:
+        """
+        with self.settings(PRESERVE_STYLES_WHITESPACE=True):
+            self.assertEquals(
+                clean_styles("padding: 9px; "),
+                "padding: 9px;"
+            )
+
+            self.assertEquals(
+                clean_styles("padding : 9px; "),
+                "padding : 9px;"
+            )
+
+            self.assertEquals(
+                clean_styles("padding:  9px; "),
+                "padding:  9px;"
+            )
+
+            self.assertEquals(
+                clean_styles("padding: 9px; margin-top: 10px; margin-bottom: 10px;"),
+                "padding: 9px; margin-top: 10px; margin-bottom: 10px;"
+            )
+
+            self.assertEquals(
+                clean_styles("padding: 9px;margin-top: 10px;margin-bottom: 10px;"),
+                "padding: 9px;margin-top: 10px;margin-bottom: 10px;"
+            )

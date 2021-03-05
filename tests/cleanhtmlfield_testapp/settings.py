@@ -154,3 +154,5 @@ ACCEPTABLE_STYLES = (
 )
 
 REMOVE_WITH_CONTENT = ('script', 'object', 'embed', 'style', 'form', )
+
+PRESERVE_STYLES_WHITESPACE = False
