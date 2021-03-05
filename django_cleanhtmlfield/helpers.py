@@ -55,6 +55,13 @@ def clean_styles(styles_string):
     cleaned_styles = []
     cleaned_styles_string = ""
 
+    preserve_styles_whitespace = False
+    try:
+        if getattr(settings, 'PRESERVE_STYLES_WHITESPACE'):
+            preserve_styles_whitespace = True
+    except AttributeError:
+        pass
+
     for style_string in styles_string.split(';'):
         if style_string.strip() == '':
             continue
@@ -64,11 +71,15 @@ def clean_styles(styles_string):
             continue
 
         style = style_string.split(':', 1)
-        style_name = style[0].lower().strip()
-        style_value = style[1].strip()
+        style_name_stripped = style[0].lower().strip()
+        style_value_stripped = style[1].strip()
+        style_name = style[0].lower()
+        style_value = style[1]
 
-        if style_name in getattr(settings, 'ACCEPTABLE_STYLES', tuple()):
+        if style_name_stripped in getattr(settings, 'ACCEPTABLE_STYLES', tuple()) and preserve_styles_whitespace:
             cleaned_styles.append({'name': style_name, 'value': style_value})
+        elif style_name_stripped in getattr(settings, 'ACCEPTABLE_STYLES', tuple()):
+            cleaned_styles.append({'name': style_name_stripped, 'value': style_value_stripped})
         else:
             logger.warning(
                 "Removing style string '{}' as the style name '{}' is not "

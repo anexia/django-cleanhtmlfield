@@ -85,6 +85,10 @@ example)
   - `REMOVE_WITH_CONTENT` - tuple that contains potentially malicious
     HTML tags that will automatically be removed (e.g., `'script',
     'object', ...`)
+  - `PRESERVE_STYLES_WHITESPACE` - optional boolean that can be used
+    to preserve the whitespace within styles (e.g., `'padding: 9px;'`
+    stays `'padding: 9px;'`) - the default behaviour strips the
+    whitespaces so (e.g., `'padding: 9px;'` becomes `'padding:9px;'`)
 
 Example:
 
@@ -135,6 +139,8 @@ ACCEPTABLE_STYLES = (
 )
 
 REMOVE_WITH_CONTENT = ('script', 'object', 'embed', 'style', 'form', )
+
+PRESERVE_STYLES_WHITESPACE = False
 ```
 
 # Compatibility with Django REST Framework
