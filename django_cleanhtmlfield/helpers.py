@@ -155,12 +155,4 @@ def clean_html(html, strip_unsafe=False):
             except:
                 pass
 
-    # ToDo: Check if we need to be python2 compatible with that
-    # doc = unicode(doc)
-    # try:
-    #     if HTMLField.EMPTY_HTML_REGEXP.match(doc.encode("UTF-8")):
-    #         return u""
-    # except:
-    #     pass
-    # encode the result with beautifulsoups html converter, thus "keeping" &nbsp; as &nbsp; (instead of \xa0)
     return doc.encode_contents(formatter='html').decode()
