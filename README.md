@@ -182,7 +182,7 @@ a matrix showing the guaranteed and tested compatibility.
 django-cleanhtmlfield Version | Django Versions | Django Rest Framework Versions | Python |
 --------------------------------- | --------------- | ------------------------------ | ------ |
 1.1 | 2.2, 3.0, 3.1 | 3.6 - 3.11 | 3.5 - 3.8
-1.2-rc.2 | 2.2, 3.0, 3.1, 3.2 | 3.6 - 3.11 | 3.7 - 3.10
+Unreleased | 2.2, 3.0, 3.1, 3.2 | 3.6 - 3.11 | 3.7 - 3.10
 
 # License
 
