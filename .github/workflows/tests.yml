@@ -27,8 +27,24 @@ jobs:
       - name: Install Django ${{ matrix.django-version }}
         run: pip install 'Django==${{ matrix.django-version }}'
 
+      - name: Install CI dependencies
+        run: pip install codecov
+
       - name: Install Clean Html Field
         run: pip install .
 
-      - name: Run tests
-        run: cd tests/ && python manage.py test
+      - name: Run tests with coverage
+        run: |
+          # prepare Django project: link all necessary data from the test project into the root directory
+          # Hint: Simply changing the directory does not work (leads to missing files in coverage report)
+          ln -s ./tests/cleanhtmlfield_testapp cleanhtmlfield_testapp
+          ln -s ./tests/myapp myapp
+          ln -s ./tests/manage.py manage.py
+
+          # run tests with coverage
+          coverage run \
+            --source='./django_cleanhtmlfield' \
+            manage.py test
+          coverage xml
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v1
