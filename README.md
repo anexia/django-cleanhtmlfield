@@ -1,8 +1,11 @@
-# Django CleanHtmlField
+django-cleanhtmlfield
+=====================
 
-[![build-and-test actions status](https://github.com/anexia-it/django-cleanhtmlfield/workflows/Module tests/badge.svg)](https://github.com/anexia-it/django-cleanhtmlfield/actions)
+[![PyPI](https://badge.fury.io/py/django-cleanhtmlfield.svg)](https://pypi.org/project/django-cleanhtmlfield/)
+[![Test Status](https://github.com/anexia-it/django-cleanhtmlfield/actions/workflows/test.yml/badge.svg?branch=master)](https://github.com/anexia-it/django-cleanhtmlfield/actions/workflows/test.yml)
+[![Codecov](https://codecov.io/gh/anexia-it/django-cleanhtmlfield/branch/master/graph/badge.svg)](https://codecov.io/gh/anexia-it/django-cleanhtmlfield)
 
-Django CleanHtmlField is a simple Django application (supporting Django
+`django-cleanhtmlfield` is a simple Django application (supporting Django
 2.2, 3.1 and 3.2) that defines an `HTMLField` that automatically
 removes potentially malicious content. This app should work with Python
 3.7+.
@@ -40,7 +43,7 @@ from django.db import models
 from django_cleanhtmlfield.fields import HTMLField
 
 
-class MyModel(models.Model)
+class MyModel(models.Model):
     some_content = HTMLField(strip_unsafe=True)
 ```
 
