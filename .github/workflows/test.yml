@@ -1,32 +1,36 @@
-name: Module tests
-
+name: Run tests
 on: [push, pull_request]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
-        python-version: ['3.7', '3.8', '3.9', '3.10', 'pypy3']
-        django-version: ['2.2', '3.1', '3.2']
+        python-version:
+          - '3.7'
+          - '3.8'
+          - '3.9'
+          - '3.10'
+          - 'pypy3'
+        django-version:
+          - '2.2'
+          - '3.1'
+          - '3.2'
 
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v2
         with:
           python-version: ${{ matrix.python-version }}
 
-      - name: Install Django ${{ matrix.django-version }}
-        run: pip install 'Django==${{ matrix.django-version }}'
-
-      - name: Install CI dependencies
-        run: pip install codecov
-
-      - name: Install Clean Html Field
-        run: pip install .
+      - name: Install dependencies and package
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install django~=${{ matrix.django-version }}.0
 
       - name: Run tests with coverage
         run: |
@@ -41,5 +45,6 @@ jobs:
             --source='./django_cleanhtmlfield' \
             manage.py test
           coverage xml
+
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1

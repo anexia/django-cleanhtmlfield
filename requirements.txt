@@ -1,0 +1,8 @@
+# Package and package dependencies
+-e .
+
+# Development dependencies
+codecov>=2.1
+setuptools>=42
+wheel>=0.37
+twine>=3.4

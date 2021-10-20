@@ -14,14 +14,15 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     license='MIT',
-    description='A simple Django app that will give you a Cleaned HTML Field.',
+    description='A simple Django app that will give you a cleaned HTML field.',
     long_description=README,
     long_description_content_type='text/markdown',  # This is important for markdown to work
     url='https://github.com/anexia-it/django-cleanhtmlfield',
-    author='Christian Kreuzberger',
-    author_email='ckreuzberger@anexia-it.com',
+    author='Andreas Stocker',
+    author_email='AStocker@anexia-it.com',
     install_requires=[
-        "beautifulsoup4>=4.6,<5",
+        'django',
+        'beautifulsoup4>=4.6,<5',
     ],
     classifiers=[
         'Development Status :: 5 - Production/Stable',
