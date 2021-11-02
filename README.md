@@ -179,13 +179,13 @@ ModelSerializer.serializer_field_mapping[HTMLField] = RestHtmlField
 
 ## Compatibility Matrix
 
-This library should be compatible with the latest Django and Django Rest Framework Versions. For reference, here is
-a matrix showing the guaranteed and tested compatibility.
+This library should be compatible with the latest Django. For reference, here is a matrix showing
+the guaranteed and tested compatibility.
 
-django-cleanhtmlfield Version | Django Versions | Django Rest Framework Versions | Python |
---------------------------------- | --------------- | ------------------------------ | ------ |
-1.1 | 2.2, 3.0, 3.1 | 3.6 - 3.11 | 3.5 - 3.8
-Unreleased | 2.2, 3.1, 3.2 | 3.6 - 3.11 | 3.7 - 3.10
+django-cleanhtmlfield Version | Django Versions | Python
+----------------------------- | --------------- | ------
+1.1                           | 2.2, 3.0, 3.1   | 3.5 - 3.8
+1.2                           | 2.2, 3.1, 3.2   | 3.7 - 3.10
 
 # License
 
