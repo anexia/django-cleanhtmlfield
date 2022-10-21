@@ -5,10 +5,8 @@ django-cleanhtmlfield
 [![Test Status](https://github.com/anexia-it/django-cleanhtmlfield/actions/workflows/test.yml/badge.svg?branch=master)](https://github.com/anexia-it/django-cleanhtmlfield/actions/workflows/test.yml)
 [![Codecov](https://codecov.io/gh/anexia-it/django-cleanhtmlfield/branch/master/graph/badge.svg)](https://codecov.io/gh/anexia-it/django-cleanhtmlfield)
 
-`django-cleanhtmlfield` is a simple Django application (supporting Django
-2.2, 3.1 and 3.2) that defines an `HTMLField` that automatically
-removes potentially malicious content. This app should work with Python
-3.7+.
+`django-cleanhtmlfield` is a simple Django application that defines an `HTMLField` that automatically
+removes potentially malicious content.
 
 For instance, if you allow the user to freely input HTML Content, and
 the user decides to inject a JavaScript snippet:
@@ -186,6 +184,7 @@ django-cleanhtmlfield Version | Django Versions | Python
 ----------------------------- | --------------- | ------
 1.1                           | 2.2, 3.0, 3.1   | 3.5 - 3.8
 1.2                           | 2.2, 3.1, 3.2   | 3.7 - 3.10
+1.3                           | 3.2, 4.0, 4.1   | 3.7 - 3.10
 
 # License
 
