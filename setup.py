@@ -17,7 +17,7 @@ setup(
     description='A simple Django app that will give you a cleaned HTML field.',
     long_description=README,
     long_description_content_type='text/markdown',  # This is important for markdown to work
-    url='https://github.com/anexia-it/django-cleanhtmlfield',
+    url='https://github.com/anexia/django-cleanhtmlfield',
     author='Andreas Stocker',
     author_email='AStocker@anexia-it.com',
     install_requires=[

@@ -2,8 +2,8 @@ django-cleanhtmlfield
 =====================
 
 [![PyPI](https://badge.fury.io/py/django-cleanhtmlfield.svg)](https://pypi.org/project/django-cleanhtmlfield/)
-[![Test Status](https://github.com/anexia-it/django-cleanhtmlfield/actions/workflows/test.yml/badge.svg?branch=master)](https://github.com/anexia-it/django-cleanhtmlfield/actions/workflows/test.yml)
-[![Codecov](https://codecov.io/gh/anexia-it/django-cleanhtmlfield/branch/master/graph/badge.svg)](https://codecov.io/gh/anexia-it/django-cleanhtmlfield)
+[![Test Status](https://github.com/anexia/django-cleanhtmlfield/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/anexia/django-cleanhtmlfield/actions/workflows/test.yml)
+[![Codecov](https://codecov.io/gh/anexia/django-cleanhtmlfield/branch/main/graph/badge.svg)](https://codecov.io/gh/anexia/django-cleanhtmlfield)
 
 `django-cleanhtmlfield` is a simple Django application (supporting Django
 2.2, 3.1 and 3.2) that defines an `HTMLField` that automatically

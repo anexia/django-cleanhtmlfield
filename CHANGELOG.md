@@ -31,7 +31,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Initial Release
 
-[Unreleased]: https://github.com/anexia-it/django-cleanhtmlfield/compare/v1.2.0...HEAD
+[Unreleased]: https://github.com/anexia/django-cleanhtmlfield/compare/v1.2.0...HEAD
 [1.2.0]: https://pypi.org/project/django-cleanhtmlfield/1.2.0/
 [1.1.0]: https://pypi.org/project/django-cleanhtmlfield/1.1.0/
 [1.0.2]: https://pypi.org/project/django-cleanhtmlfield/1.0.2/
