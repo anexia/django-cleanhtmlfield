@@ -3,6 +3,7 @@
 
 # Development dependencies
 codecov>=2.1
+pre-commit>=4.0
 setuptools>=75
-wheel>=0.44
 twine>=5.1
+wheel>=0.44

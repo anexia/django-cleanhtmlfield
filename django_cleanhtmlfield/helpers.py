@@ -69,8 +69,8 @@ def clean_styles(styles_string):
         if ":" not in style_string:
             logger.warning(
                 "Removing style string '{}' as it does not contain a :".format(
-                    style_string
-                )
+                    style_string,
+                ),
             )
             continue
 
@@ -87,18 +87,19 @@ def clean_styles(styles_string):
             cleaned_styles.append({"name": style_name, "value": style_value})
         elif style_name_stripped in getattr(settings, "ACCEPTABLE_STYLES", tuple()):
             cleaned_styles.append(
-                {"name": style_name_stripped, "value": style_value_stripped}
+                {"name": style_name_stripped, "value": style_value_stripped},
             )
         else:
             logger.warning(
                 "Removing style string '{}' as the style name '{}' is not "
                 "listed in the ACCEPTABLE_STYLES setting".format(
-                    style_string, style_name
-                )
+                    style_string,
+                    style_name,
+                ),
             )
 
     for style in cleaned_styles:
-        cleaned_styles_string += "%s:%s;" % (style["name"], style["value"])
+        cleaned_styles_string += "{}:{};".format(style["name"], style["value"])
 
     return cleaned_styles_string
 
@@ -112,8 +113,8 @@ def clean_hrefs(href_string):
     if href_string.startswith("javascript:"):
         logger.warning(
             "Removing href string '{}' as it contains dangerous code".format(
-                href_string
-            )
+                href_string,
+            ),
         )
         return None
 
@@ -142,8 +143,8 @@ def clean_html(html, strip_unsafe=False):
             if tag.name not in getattr(settings, "ACCEPTABLE_ELEMENTS", tuple()):
                 logger.warning(
                     "Found tag {} which is not in the ACCEPTABLE_ELEMENTS setting".format(
-                        tag.name
-                    )
+                        tag.name,
+                    ),
                 )
                 if tag.name in getattr(settings, "REMOVE_WITH_CONTENT", tuple()):
                     tag.decompose()
@@ -156,7 +157,7 @@ def clean_html(html, strip_unsafe=False):
                     if attr not in getattr(settings, "ACCEPTABLE_ATTRIBUTES", tuple()):
                         logger.warning(
                             "Removing attribute {} of tag {} as it is not listed in the "
-                            "ACCEPTABLE_ATTRIBUTES settings".format(attr, tag.name)
+                            "ACCEPTABLE_ATTRIBUTES settings".format(attr, tag.name),
                         )
                         del tag[attr]
                         continue
@@ -167,7 +168,8 @@ def clean_html(html, strip_unsafe=False):
                     elif attr == "href":
                         tag[attr] = clean_hrefs(tag[attr])
 
-            except:
+            except Exception as e:
+                logger.debug(e, exc_info=True)
                 pass
 
     return doc.encode_contents(formatter="html").decode()
