@@ -45,15 +45,15 @@ We are Groot. We are Groot. I am Groot. I am Groot. I am Groot. We are Groot. I 
         :return:
         """
         malicious_html_string = """<h1>Groot Ipsum</h1>
-        <script type="text/javascript">
-        alert('Do something evil in Javascript');
-        </script>
-        <p>I am Groot. I am Groot. I am Groot. We are Groot. We are Groot. I am Groot. I am Groot. I am Groot. We are Groot. I am Groot. We are Groot. I am Groot. I am Groot. We are Groot. We are Groot. We are Groot. We are Groot. We are Groot. I am Groot. We are Groot. I am Groot. I am Groot. I am Groot. We are Groot. We are Groot. </p>
-        <p>I am Groot. I am Groot. <span style="color:red">I am Groot</span>. We are Groot. We are Groot. I am Groot. I am Groot. I am Groot. We are Groot. I am Groot. We are Groot. I am Groot. I am Groot. We are Groot. We are Groot. We are Groot. We are Groot. We are Groot. I am Groot. We are Groot. I am Groot. I am Groot. I am Groot. We are Groot. We are Groot.
-        </p>
-        <h3>Some title</h3>
-        <p>I am Groot. <i>I am Groot</i>. I am Groot. We are Groot. We are Groot. I am Groot. I am Groot. I am Groot. We are Groot. I am Groot. We are Groot. I am Groot. I am Groot. We are Groot. We are Groot. We are Groot. We are Groot. We are Groot. I am Groot. We are Groot. I am Groot. I am Groot. I am Groot. We are Groot. We are Groot.
-        </p>"""
+<script type="text/javascript">
+alert('Do something evil in Javascript');
+</script>
+<p>I am Groot. I am Groot. I am Groot. We are Groot. We are Groot. I am Groot. I am Groot. I am Groot. We are Groot. I am Groot. We are Groot. I am Groot. I am Groot. We are Groot. We are Groot. We are Groot. We are Groot. We are Groot. I am Groot. We are Groot. I am Groot. I am Groot. I am Groot. We are Groot. We are Groot. </p>
+<p>I am Groot. I am Groot. <span style="color:red">I am Groot</span>. We are Groot. We are Groot. I am Groot. I am Groot. I am Groot. We are Groot. I am Groot. We are Groot. I am Groot. I am Groot. We are Groot. We are Groot. We are Groot. We are Groot. We are Groot. I am Groot. We are Groot. I am Groot. I am Groot. I am Groot. We are Groot. We are Groot.
+</p>
+<h3>Some title</h3>
+<p>I am Groot. <i>I am Groot</i>. I am Groot. We are Groot. We are Groot. I am Groot. I am Groot. I am Groot. We are Groot. I am Groot. We are Groot. I am Groot. I am Groot. We are Groot. We are Groot. We are Groot. We are Groot. We are Groot. I am Groot. We are Groot. I am Groot. I am Groot. I am Groot. We are Groot. We are Groot.
+</p>"""
         obj = MyModel()
         obj.some_html_field = malicious_html_string
         obj.save()

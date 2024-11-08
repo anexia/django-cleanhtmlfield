@@ -9,11 +9,11 @@ class TestCleanHtml(SimpleTestCase):
         Tests that javascript "script" tags are removed
         :return:
         """
-        self.assertEquals(
+        self.assertEqual(
+            "<p>test</p>",
             clean_html(
                 "<p>test</p><script>alert('hello');</script>", strip_unsafe=True
             ),
-            "<p>test</p>",
         )
 
     def test_clean_html_keep_it(self):
@@ -28,4 +28,4 @@ class TestCleanHtml(SimpleTestCase):
 <h3>Some title</h3>
 <p>I am Groot. <i>I am Groot</i>. I am Groot. We are Groot. We are Groot. I am Groot. I am Groot. I am Groot. We are Groot. I am Groot. We are Groot. I am Groot. I am Groot. We are Groot. We are Groot. We are Groot. We are Groot. We are Groot. I am Groot. We are Groot. I am Groot. I am Groot. I am Groot. We are Groot. We are Groot.
 </p>"""
-        self.assertEquals(clean_html(some_html_str), some_html_str)
+        self.assertEqual(some_html_str, clean_html(some_html_str))

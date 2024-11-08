@@ -3,6 +3,6 @@
 
 # Development dependencies
 codecov>=2.1
-setuptools>=42
-wheel>=0.37
-twine>=3.4
+setuptools>=75
+wheel>=0.44
+twine>=5.1
