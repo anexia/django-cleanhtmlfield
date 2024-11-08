@@ -6,7 +6,6 @@ import django_cleanhtmlfield.fields
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = []

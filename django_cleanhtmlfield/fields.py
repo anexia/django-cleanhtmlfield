@@ -31,10 +31,10 @@ class HTMLField(fields.TextField):
         for arg in ("primary_key", "unique", "max_length"):
             if arg in kwargs:
                 raise TypeError(
-                    "'%s' is not a valid argument for %s." % (arg, self.__class__)
+                    f"'{arg}' is not a valid argument for {self.__class__}.",
                 )
 
-        super(HTMLField, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
 
     def get_internal_type(self):
         """
@@ -64,8 +64,8 @@ class HTMLField(fields.TextField):
         defaults["widget"] = forms.Textarea(
             attrs={
                 "class": css_class,
-            }
+            },
         )
 
         defaults.update(kwargs)
-        return super(HTMLField, self).formfield(*args, **defaults)
+        return super().formfield(*args, **defaults)
