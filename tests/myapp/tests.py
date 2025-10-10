@@ -23,7 +23,7 @@ class TestCleanHtml(TestCase):
         """
         complex_html_string = """<h1>Groot Ipsum</h1>
 <p>I am Groot. I am Groot. I am Groot. We are Groot. We are Groot. I am Groot. I am Groot. I am Groot. We are Groot. I am Groot. We are Groot. I am Groot. I am Groot. We are Groot. We are Groot. We are Groot. We are Groot. We are Groot. I am Groot. We are Groot. I am Groot. I am Groot. I am Groot. We are Groot. We are Groot. </p>
-<p>I am Groot. I am Groot. <span style="color:red;">I am Groot</span>. 
+<p>I am Groot. I am Groot. <span style="color:red;">I am Groot</span>.
 We are Groot. We are Groot. I am Groot. I am Groot. I am Groot. We are Groot. I am Groot. We are Groot. I am Groot. I am Groot. We are Groot. We are Groot. We are Groot. We are Groot. We are Groot. I am Groot. We are Groot. I am Groot. I am Groot. I am Groot. We are Groot. We are Groot.
 </p>
 <h3>Some title</h3>

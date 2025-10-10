@@ -19,7 +19,8 @@ class TestCleanStyles(SimpleTestCase):
         self.assertEqual("color:red;", clean_styles("color:red"))
 
         self.assertEqual(
-            "color:red;font-size:10pt;", clean_styles("color:red; font-size:10pt")
+            "color:red;font-size:10pt;",
+            clean_styles("color:red; font-size:10pt"),
         )
 
     def test_clean_styles_single(self):
@@ -51,7 +52,7 @@ class TestCleanStyles(SimpleTestCase):
         self.assertEqual(
             "padding:9px;margin-bottom:10px;",
             clean_styles(
-                "padding: 9px; some-invalid-attribute: 10px; margin-bottom: 10px;"
+                "padding: 9px; some-invalid-attribute: 10px; margin-bottom: 10px;",
             ),
         )
 

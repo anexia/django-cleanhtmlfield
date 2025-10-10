@@ -12,7 +12,8 @@ class TestCleanHtml(SimpleTestCase):
         self.assertEqual(
             "<p>test</p>",
             clean_html(
-                "<p>test</p><script>alert('hello');</script>", strip_unsafe=True
+                "<p>test</p><script>alert('hello');</script>",
+                strip_unsafe=True,
             ),
         )
 
