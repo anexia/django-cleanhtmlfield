@@ -170,6 +170,5 @@ def clean_html(html, strip_unsafe=False):
 
             except Exception as e:
                 logger.debug(e, exc_info=True)
-                pass
 
     return doc.encode_contents(formatter="html").decode()
